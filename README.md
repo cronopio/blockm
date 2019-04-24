@@ -5,7 +5,9 @@ Node.js module that allow you add blockchain funds support (by now only litecoin
 Starting project, so, its very EXPERIMENTAL and only support LITECOIN by now.
 
 
-## API
+##
+
+## Proposed API
 
  * MoneyManager.sync(callback): Sincroniza la base de datos (Checkea conexion DB)
  * MoneyManager.close(): Cierra la conexion con la base de datos

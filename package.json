@@ -1,0 +1,28 @@
+{
+  "name": "blockm",
+  "version": "1.0.0",
+  "description": "Litecoin accounts manager",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cronopio/blockm.git"
+  },
+  "author": "Cronopio",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cronopio/blockm/issues"
+  },
+  "homepage": "https://github.com/cronopio/blockm#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}
