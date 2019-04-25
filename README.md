@@ -4,6 +4,39 @@ Node.js module that allow you add blockchain funds support (by now only litecoin
 
 Starting project, so, its very EXPERIMENTAL and only support LITECOIN by now.
 
+## How to Use
+
+```
+$ npm install blockm
+```
+
+### Setup Database and Litecoin Node
+
+Pass down credentials to the module using environment variables
+
+```
+$ export DATA_DB='postgres://postgres:pleasechangeme@localhost:5432/blockm-db'
+$ export LTC_HOST=localhost
+$ export LTC_PORT=8332
+$ export LTC_USER=rpcuser
+$ export LTC_PASS=rpcpass
+```
+
+And use the module from your code.
+
+```js
+const BlockM = require('blockm')
+
+// Sync with Database
+
+BlockM.sync((err) => {
+  // Check err for errors with database connection.
+})
+
+
+// And when shutdown you should call the close method.
+BlockM.close()
+```
 
 ## Running Tests
 
@@ -32,6 +65,16 @@ $ DATA_DB='postgres://postgres:pleasechangeme@localhost:5432/blockm-db' npm run 
  ```
  $ DATA_DB='postgres://postgres:pleasechangeme@localhost:5432/blockm-db' npm run migrate
  ```
+
+#### Create Litecoin Node
+
+Lets run a container with `litecoind` as node and setup it to allow RPC connections
+
+* `docker run -v /path/to/store/blockchain/and/wallet:/home/litecoin/.litecoin --rm --name blockm-ltc -p 19332:19332 uphold/litecoind -printtoconsole -testnet -rpcallowip=172.17.0.0/16 -rpcuser=rpcuser -rpcpassword=rpcpass -server`
+
+Using this method allow you to protect very well the wallet and relay on the security of the official litecoin core software but will need to download entire blockchain data so will require lots of disk space.
+
+Please open an Issue and propose to us something better.
 
 ### Run Testsuite
 
