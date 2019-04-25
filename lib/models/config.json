@@ -1,0 +1,14 @@
+{
+  "development": {
+    "use_env_variable": "DATA_DB"
+  },
+  "test": {
+    "use_env_variable": "DATA_DB"
+  },
+  "testnet": {
+    "use_env_variable": "DATA_DB"
+  },
+  "production": {
+    "use_env_variable": "DATA_DB"
+  }
+}
