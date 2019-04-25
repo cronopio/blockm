@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "migrate": "DEBUG=* sequelize --config lib/models/config.json db:migrate",
     "seed": "DEBUG=* sequelize --config lib/models/config.json db:seed:all",
     "createdb": "NODE_ENV=test sequelize --config lib/models/config.json db:create",
@@ -32,6 +32,8 @@
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^5.7.5",
-    "sequelize-cli": "^5.4.0"
+    "sequelize-cli": "^5.4.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
   }
 }

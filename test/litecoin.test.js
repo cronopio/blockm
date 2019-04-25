@@ -7,7 +7,7 @@ describe('Testing Litecoin Blockchain Connection', () => {
       blockm.getBlockCount((err, count) => {
         expect(err).toBeFalsy();
         expect(count).toBeGreaterThan(10)
-        console.log('Miralo', count, typeof count);
+        console.log('Block Count', count, typeof count);
         done();
       })
     })
@@ -16,7 +16,7 @@ describe('Testing Litecoin Blockchain Connection', () => {
     blockm.getConnectionCount((err, count) => {
       expect(err).toBeFalsy();
       expect(count).toBeGreaterThan(1)
-      console.log('Miralo CX', count, typeof count);
+      console.log('Peers Connection', count, typeof count);
       done();
     })
   })
