@@ -1,5 +1,6 @@
 const blockm = require('../lib');
 const validator = require('validator')
+const WAValidator = require('wallet-address-validator');
 
 describe('Testing Account Creation', () => {
   test('Should call createAccount() and get an Account ID', done => {
@@ -9,6 +10,19 @@ describe('Testing Account Creation', () => {
         expect(err).toBeFalsy();
         expect(accountID).toBeTruthy()
         expect(validator.isUUID(accountID)).toBe(true)
+        done();
+      })
+    })
+  })
+  test('Should call deposit() and get a valid Litecoin Adress', done => {
+    blockm.createAccount((err, accountID) => {
+      expect(err).toBeFalsy();
+      expect(accountID).toBeTruthy()
+      expect(validator.isUUID(accountID)).toBe(true)
+      blockm.deposit(accountID, (err, address) => {
+        expect(err).toBeFalsy();
+        expect(address).toBeTruthy()
+        expect(WAValidator.validate(address, 'LTC', 'testnet')).toBe(true)
         done();
       })
     })
