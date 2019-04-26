@@ -1,5 +1,5 @@
 const blockm = require('../lib');
-const validator = require('validator')
+const validator = require('validator');
 const WAValidator = require('wallet-address-validator');
 
 describe('Testing Account Creation', () => {
