@@ -1,0 +1,40 @@
+{
+  "name": "blockm",
+  "version": "1.0.1",
+  "description": "Litecoin accounts manager",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "migrate": "DEBUG=* sequelize --config lib/models/config.json db:migrate",
+    "seed": "DEBUG=* sequelize --config lib/models/config.json db:seed:all",
+    "createdb": "NODE_ENV=test sequelize --config lib/models/config.json db:create",
+    "clean": "NODE_ENV=test sequelize --config lib/models/config.json db:drop && npm run createdb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cronopio/blockm.git"
+  },
+  "author": "Cronopio",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cronopio/blockm/issues"
+  },
+  "homepage": "https://github.com/cronopio/blockm#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "node-litecoin": "^1.0.1",
+    "pg": "^7.10.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.7.5",
+    "sequelize-cli": "^5.4.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0",
+    "wallet-address-validator": "^0.2.4"
+  }
+}
