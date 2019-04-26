@@ -44,7 +44,7 @@ BlockM.close();
 You will need a PostgreSQL database. An easy way to get one is using a docker container:
 
 ```
-$ docker run --name blockm-db -p 5433:5432 -e POSTGRES_PASSWORD=<pleasechangeme> -d postgres
+$ docker run --name blockm-db -p 5432:5432 -e POSTGRES_PASSWORD=<pleasechangeme> -d postgres
 ```
 
 To pass creds down to the BlockM module you have several options. The easiest way is to set the `DATA_DB` environment variable to an URL that specify all the PostgreSQL connection info.
@@ -63,7 +63,7 @@ $ DATA_DB='postgres://postgres:<pleasechangeme>@localhost:5432/blockm-db' npm ru
 - Run migrations
 
 ```
-$ DATA_DB='postgres://postgres:pleasechangeme@localhost:5432/blockm-db' npm run migrate
+$ DATA_DB='postgres://postgres:<pleasechangeme>@localhost:5432/blockm-db' npm run migrate
 ```
 
 #### Create Litecoin Node
