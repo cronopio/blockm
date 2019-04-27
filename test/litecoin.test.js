@@ -1,5 +1,7 @@
 const blockm = require('../lib');
 
+jest.setTimeout(10000);
+
 describe('Testing Litecoin Blockchain Connection', () => {
   test('Should get response from getBlockCount()', done => {
     blockm.sync((err) => {
