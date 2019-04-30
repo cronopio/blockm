@@ -29,7 +29,7 @@ describe('Testing getBalance', () => {
       expect(err).toBeFalsy();
       expect(accountID).toBeTruthy()
       expect(validator.isUUID(accountID)).toBe(true)
-      blockm.deposit(accountID, (err, address) => {
+      blockm.getAddresses(accountID, 'ltc', (err, address) => {
         expect(err).toBeFalsy();
         expect(address).toBeTruthy()
         expect(WAValidator.validate(address, 'LTC', 'testnet')).toBe(true)
