@@ -7,7 +7,7 @@ jest.setTimeout(10000);
 
 describe('Testing getBalance', () => {
   test('Should call getBalance() with no tx before so it give 0', done => {
-  	blockm.sync(err => {
+    blockm.sync(err => {
       expect(err).toBeFalsy();
       blockm.createAccount((err, accountID) => {
         expect(err).toBeFalsy();
