@@ -50,6 +50,10 @@ describe('Testing getBalance', () => {
       })
     })
   })
+  test.only('Should call getBalance() with one TX before on Ethereum', done => {
+    blockm.__web3.eth.personal.getAccounts()
+    .then(console.log);
+  })
   test('Should close', () => {
     expect(blockm.close()).toBeUndefined();
   })
