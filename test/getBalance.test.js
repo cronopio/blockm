@@ -5,6 +5,8 @@ const os = require('os');
 
 jest.setTimeout(10000);
 
+const cuentaConSaldo = 'cb3be426-9959-4a2c-98dd-0bbb74aa9bdc';
+
 describe('Testing getBalance', () => {
   test('Should call getBalance() with no tx before so it give 0', done => {
     blockm.sync(err => {
@@ -22,9 +24,6 @@ describe('Testing getBalance', () => {
     })
   })
   test('Should call getBalance() with one tx before so it give fixed amout', done => {
-    if (os.hostname() !== 'dreamfactory') {
-      return done();
-    }
     blockm.createAccount((err, accountID) => {
       expect(err).toBeFalsy();
       expect(accountID).toBeTruthy()
@@ -37,7 +36,7 @@ describe('Testing getBalance', () => {
           // Set the account to some account with funds so balance will be
           // greater than zero
           account.update({
-            blockchainAccount: "f1e15510-a925-11e7-9662-5b5dc1aa44b3"
+            blockchainAccount: cuentaConSaldo
           }).then(_ => {
             blockm.getBalance(accountID, (err, balance) => {
               expect(err).toBeFalsy();
@@ -50,9 +49,10 @@ describe('Testing getBalance', () => {
       })
     })
   })
-  test.only('Should call getBalance() with one TX before on Ethereum', done => {
-    blockm.__web3.eth.personal.getAccounts()
-    .then(console.log);
+  test('Should call getBalance() with one TX before on Ethereum', done => {
+    done();
+    //blockm.__web3.eth.personal.getAccounts()
+    //.then(console.log);
   })
   test('Should close', () => {
     expect(blockm.close()).toBeUndefined();
