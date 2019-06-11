@@ -85,6 +85,26 @@ $ npm install
 $ DATA_DB='postgres://postgres:pleasechangeme@localhost:5432/blockm-db' npm test
 ```
 
+### Using nodify to run testsuite
+
+We count with a own password and username to use services from [Nodify](http://nodify.cronop.io), please, don't abuse it.
+
+```
+LTC_HOST=nodify.cronop.io LTC_PORT=9993 LTC_USER=chai3ahgoh8ed5eushaeW1Oh LTC_PASS=quae3noaDe4kais6rowahQuo DATA_DB='postgres://postgres:pwpostgres@localhost:5433/blockm-db' npm test
+```
+
+### Report
+
+By now the output should looks like this.
+
+```
+Test Suites: 6 passed, 6 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        13.92s
+Ran all test suites.
+```
+
 ## Contributing
 
 In general, we follow the "fork-and-pull" Git workflow.
